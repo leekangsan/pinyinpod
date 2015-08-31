@@ -1,0 +1,3 @@
+[submodule "pinyinbase"]
+	path = pinyinbase
+	url = https://github.com/pffy/pinyinbase
