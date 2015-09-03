@@ -1,11 +1,10 @@
 # pinyinpod
-Compiles glossaries to Pinyinbase JSON files. Requires Node.js.
+Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
 
 ## QUICK START
 
-
-**Install Node.js**
+**Install Node.js with a package manager.**
 + [Learn more.][gh_getnode]
 + On Mac? `$ brew install node`
 
@@ -17,3 +16,4 @@ Compiles glossaries to Pinyinbase JSON files. Requires Node.js.
 + Outfile (pinyinbase) appears in the repo root (for now, but this may change).
 
 [gh_getnode]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
+[nodejs_page]: https://nodejs.org/en/download/
