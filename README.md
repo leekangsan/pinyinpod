@@ -4,11 +4,12 @@ Compiles glossaries to Pinyinbase JSON files. Requires Node.js.
 
 ## QUICK START
 
+
+**Install Node.js**
++ [Learn more.][gh_getnode]
+
 **Clone repo.**
 + `$ git clone https://github.com/pffy/pinyinpod`
-
-**Install Node.js.**
-+ [Learn more.][gh_getnode]
 
 **Build Pinyinbase.**
 + `$ node pod.js`
