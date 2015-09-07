@@ -12,7 +12,7 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 + `$ git clone https://github.com/pffy/pinyinpod`
 
 **Build a new Pinyinbase.**
-+ From repo root directory, type `$ node pod.js`
++ From the `pinyinpod` repo root directory, type `$ node pod.js`
 + Outfile (pinyinbase) appears in the `dist` folder.
 
 
