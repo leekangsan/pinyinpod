@@ -28,8 +28,10 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   + `node pod.js --verbose`
   	+ Verbose mode. Too much information.
 
-  + Example
-  	+ `node pod.js --verbose --pbjs`: verbose mode toggled, with a file to `pb.js`
+  + Exempli Gratia...
+  	+ `node pod.js --verbose --pbjs`
+  	  + verbose mode toggled
+  	  + outfile name is `pb.js`
 
 
 ### Slow Down, Turbo
