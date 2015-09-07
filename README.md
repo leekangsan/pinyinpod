@@ -13,7 +13,24 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
 **Build a new Pinyinbase.**
 + From repo root directory, type `$ node pod.js`
-+ Outfile (pinyinbase) appears in the repo root (for now, but this may change).
++ Outfile (pinyinbase) appears in the `dist` folder.
+
+
+### Command Line Parameters
+
+  + `node pod.js`
+  	+ Compiles Pinyinbase JSON file.
+  	+ Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
+
+  + `node pod.js --pbjs`
+  	+ Outfile name is `pb.js`. Overwrites file, if exists.
+
+  + `node pod.js --verbose`
+  	+ Verbose mode. Too much information.
+
+  + Example
+  	+ `node pod.js --verbose --pbjs`: verbose mode toggled, with a file to `pb.js`
+
 
 ### Slow Down, Turbo
 

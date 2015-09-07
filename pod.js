@@ -27,8 +27,8 @@
 
 /**
  * name     : pod.js
- * version  : 1
- * updated  : 2015-08-31
+ * version  : 2
+ * updated  : 2015-09-07
  * license  : http://unlicense.org/ The Unlicense
  * git      : https://github.com/pffy/pinyinpod
  *
@@ -38,28 +38,41 @@ var Pinyinbase = require('./obj/node-pinyinbase.js');
 
 var pb = new Pinyinbase();
 
-
 var timestamp = Date.now();
 var prefix = 'vocab-cmn-';
 var outfile = 'pinyinbase-outfile-' + timestamp + '.js';
+var outfilepbjs = 'pb.js';
 var opts = { encoding: 'utf-8' };
-var filedir = './pinyinbase/';
+var infiledir = './pinyinbase/';
+var outfiledir = './dist/';
+var outfilepath = '';
 
 var output = '';
 var idxarr = [];
 var testFlag = false;
+var verboseFlag = false;
 
 var allfiles = [];
 var files = [];
+
+if(!fs.existsSync(outfiledir)) {
+  fs.mkdirSync(outfiledir);
+}
 
 // processing command line arguments
 process.argv.forEach(function (val, index, array) {
   if(index > 1) {
     switch(val) {
-      case '--test':
-        testFlag = true;
-        console.log('test flag toggled.');
-        // todo: toggle more output formats
+      case '--verbose':
+      case '-v':
+        // shows steps and stuff
+        verboseFlag = true;
+        printUpdates('Verbose mode toggled.');
+        break;
+      case '--pbjs':
+        // short outfile name for convenience
+        outfile = outfilepbjs;
+        printUpdates('Outfile name set to: pb.js');
         break;
       default:
         // nothing to add
@@ -68,31 +81,33 @@ process.argv.forEach(function (val, index, array) {
   }
 });
 
-
-allfiles = fs.readdirSync(filedir);
+allfiles = fs.readdirSync(infiledir);
 files = allfiles.filter(isValidFilename);
-console.log(files);
 
 if(!files.length) {
-  console.log('No valid files found.');
-  console.log('Exiting...');
+
+  printUpdates('No valid files found.');
+  printUpdates('Exiting...');
+
   process.exit(1); // exit
 }
 
 var contents = '';
-console.log('loading files..');
+printUpdates('Loading files...');
 
 for(var i in files) {
 
-  filepath = filedir + files[i];
-  console.log('');
+  filepath = infiledir + files[i];
 
-  console.log('loading ' + filepath + ' ...');
+  printUpdates('');
+  printUpdates('Loading ' + filepath + ' ...');
+
   contents = fs.readFileSync('' + filepath, opts);
-  console.log('..done.');
+
+  printUpdates('... done.');
 
   if(!contents) {
-    console.log(filepath + ' is empty. Moving file...');
+    printUpdates(filepath + ' is empty. Moving file...');
     continue;
   }
 
@@ -109,32 +124,44 @@ for(var i in files) {
     hasEntries = true;
 
     var sourcelinekey = files[i] + '-' + x;
-    console.log('source-line-key: ' + sourcelinekey + ': ' + lines[x]);
+    printUpdates('Building source-line-key: ' + sourcelinekey + ': ' + lines[x]);
 
     var entry = '' + pb.setInput(lines[x], files[i]);
+    printUpdates('Reading entry: ' + lines[x]);
 
     idxarr.push(entry);
-    console.log('done with ' + filepath + ' ...');
+    printUpdates('Done with ' + filepath + ' ...');
+
   }
 
   if(!hasEntries) {
-   console.log('No entries found. Moving along...');
+    printUpdates('No entries found. Moving along...');
   }
 
-  console.log('');
+  printUpdates('');
 }
 
-console.log('..done with files.');
-//console.log(idxarr);
+printUpdates('... done with files.');
+outfilepath = outfiledir + outfile;
 
-console.log('saving pinyinbase file ' + outfile + '...');
-fs.writeFileSync(outfile,
+printUpdates('Saving pinyinbase JSON file to ' + outfilepath + '...');
+
+fs.writeFileSync(outfilepath,
   'var IdxCustomPinyinBase = [\n' + idxarr.join(',\n') + '\n];');
-console.log('done.');
 
-console.log('');
-console.log('exiting...');
 
+printUpdates('');
+printUpdates('Done.');
+
+printUpdates('');
+printUpdates('Total entries added: ' + idxarr.length);
+
+printUpdates('');
+printUpdates('Exiting...');
+printUpdates('');
+
+// all good things
+process.exit(0);
 
 // helpers
 
@@ -144,5 +171,11 @@ function isValidFilename(item) {
     return true;
   }
   return false;
+}
+
+function printUpdates(str) {
+  if(verboseFlag) {
+    console.log(str);
+  }
 }
 
