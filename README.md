@@ -48,10 +48,12 @@ If you really need to use CC-CEDICT dictionary data (e.g., as a customer deliver
 
   + PFFYDICT Dictionary Schema
     + https://github.com/pffy/pffydict
-    + https://github.com/pffy/php-cedict2sqlite
-    + https://github.com/pffy/php-cedict2mysql
-    + https://github.com/pffy/java-pffydict-sqlite
-    + https://github.com/pffy/java-pffydict-mysql
+    + SQLite
+      + https://github.com/pffy/php-cedict2sqlite (Build)
+      + https://github.com/pffy/java-pffydict-sqlite (Query)
+    + MySQL
+      + https://github.com/pffy/php-cedict2mysql (Build) 
+      + https://github.com/pffy/java-pffydict-mysql (Query)
 
 
 
