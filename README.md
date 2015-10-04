@@ -44,20 +44,21 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
 If you really need to use CC-CEDICT dictionary data (e.g., as a customer deliverable), you should rename the dictionary file from `cedict_ts.u8` to something like `vocab-cmn-cedict-data.txt` (anything with the `vocab-cmn-` prefix will do); then, move it to the `pinyinbase` folder.
 
-**The Pinyinbase Schema is pinyin-optimized for JSON or NoSQL search.** PFFYDICT is pinyin-optimized for relational database search. SQLite? MySQL? MariaDB? Then, try PFFYDICT:
+**The Pinyinbase schema is pinyin-optimized for JSON or NoSQL search.** However, you may be looking for something elese.
 
-  + PFFYDICT Dictionary Schema
-    + https://github.com/pffy/pffydict
+An alternative to the Pinyinbase schema is **[PFFYDICT][gh_pffydict]** schema, which is pinyin-optimized for relational database search. So, are you using SQLite? MySQL? MariaDB? Then, try out PFFYDICT:
+
+  + [PFFYDICT Dictionary Schema][gh_pffydict]
     + SQLite
       + https://github.com/pffy/php-cedict2sqlite (Build)
       + https://github.com/pffy/java-pffydict-sqlite (Query)
-    + MySQL
+    + MariaDB/MySQL
       + https://github.com/pffy/php-cedict2mysql (Build) 
       + https://github.com/pffy/java-pffydict-mysql (Query)
 
 
 
-
+[gh_pffydict]: https://github.com/pffy/pffydict
 [gh_getnode]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [nodejs_page]: https://nodejs.org/en/download/
 [gh_pinyinbase]: https://github.com/pffy/pinyinbase
