@@ -11,6 +11,9 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 **Clone this repo.**
 + `$ git clone https://github.com/pffy/pinyinpod`
 
+**Need to update repo?**
++ In `pinyinpod` repo root, type: `$ git submodule update --remote --recursive`
+
 **Build a new Pinyinbase.**
 + From the `pinyinpod` repo root directory, type `$ node pod.js`
 + Outfile (pinyinbase) appears in the `dist` folder.
