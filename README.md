@@ -22,10 +22,17 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 ### Command Line Parameters
 
   + `node pod.js`
-  	+ Compiles Pinyinbase JSON file.
+    + Outputs a JavaScript file with a Pinyinbase object.
+  	+ Pinyinbase object is called `IdxCustomPinyinBase`.
   	+ Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
 
+  + `node pod.js --jsonfile`
+    + Outputs a raw JSON file.
+  	+ Outfile name is `pb.json`. Overwrites file, if exists.
+
   + `node pod.js --pbjs`
+    + Outputs a JavaScript file with a Pinyinbase object.
+    + Pinyinbase object is called `IdxCustomPinyinBase`.
   	+ Outfile name is `pb.js`. Overwrites file, if exists.
 
   + `node pod.js --verbose`
