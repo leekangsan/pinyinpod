@@ -27,7 +27,9 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   	+ Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
 
   + `node pod.js --jsonfile`
-    + Outputs a raw JSON file.
+    + Outputs a raw [JSON][json_home] file.
+    + You can [parse the JSON][json_parse] file contents in JavaScript.
+    + You can [decode the JSON][json_decode] file contents in PHP.
   	+ Outfile name is `pb.json`. Overwrites file, if exists.
 
   + `node pod.js --pbjs`
@@ -73,3 +75,6 @@ An alternative to the Pinyinbase schema is **[PFFYDICT][gh_pffydict]** schema, w
 [nodejs_page]: https://nodejs.org/en/download/
 [gh_pinyinbase]: https://github.com/pffy/pinyinbase
 [gh_casestudy]: https://github.com/pffy/pinyinbase#case-studies
+[json_home]: http://www.json.org/
+[json_decode]: http://php.net/manual/en/function.json-decode.php
+[json_parse]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
