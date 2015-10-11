@@ -27,8 +27,8 @@
 
 /**
  * name     : pod.js
- * version  : 2
- * updated  : 2015-09-07
+ * version  : 5
+ * updated  : 2015-10-11
  * license  : http://unlicense.org/ The Unlicense
  * git      : https://github.com/pffy/pinyinpod
  *
@@ -40,20 +40,18 @@ var pb = new Pinyinbase();
 
 var timestamp = Date.now();
 var prefix = 'vocab-cmn-';
-var outfile = 'pinyinbase-outfile-' + timestamp + '.js';
-var outfilepbjs = 'pb.js';
 
 var opts = {
   encoding: 'utf-8'
 };
 
-var infiledir = './pinyinbase/';
-var outfiledir = './dist/';
-var outfilepath = outfiledir + outfile;
-
 var outfile_defaultfile = 'pinyinbase-outfile-' + timestamp + '.js';
 var outfile_jsonfile = 'pb.json';
 var outfile_pbjsfile = 'pb.js';
+
+var infiledir = './pinyinbase/';
+var outfiledir = './dist/';
+var outfilepath = outfiledir + outfile_defaultfile;
 
 var output = '';
 var idxarr = [];
@@ -68,6 +66,7 @@ var testFlag = false;
 var allfiles = [];
 var files = [];
 
+// check for dist folder
 if(!fs.existsSync(outfiledir)) {
   fs.mkdirSync(outfiledir);
 }
@@ -121,9 +120,11 @@ for(var i in files) {
 
   contents = fs.readFileSync('' + filepath, opts);
 
+  printUpdates('');
   printUpdates('... done.');
 
   if(!contents) {
+    printUpdates('');
     printUpdates(filepath + ' is empty. Moving file...');
     continue;
   }
@@ -162,18 +163,20 @@ printUpdates('... done with files.');
 printUpdates('Saving pinyinbase JSON file to ' + outfilepath + '...');
 
 // default (always prints)
-fs.writeFileSync(outfiledir + outfile_defaultfile,
+fs.writeFileSync(outfilepath,
   'var IdxCustomPinyinBase = [\n' + idxarr.join(',\n') + '\n];');
 
 // --pbjs
 if(outfilePbjsFlag) {
-  fs.writeFileSync(outfiledir + outfile_pbjsfile,
+  outfilepath = outfiledir + outfile_pbjsfile;
+  fs.writeFileSync(outfilepath,
   'var IdxCustomPinyinBase = [\n' + idxarr.join(',\n') + '\n];');
 }
 
 // --jsonfile
 if(outfileJsonFlag) {
-  fs.writeFileSync(outfiledir + outfile_jsonfile,
+  outfilepath = outfiledir + outfile_jsonfile;
+  fs.writeFileSync(outfilepath,
     '[\n' + idxarr.join(',\n') + '\n]');
 }
 
@@ -192,7 +195,9 @@ printUpdates('');
 // all good things
 process.exit(0);
 
-// helpers
+
+// helper functions
+// ----------------
 
 function isValidFilename(item) {
   item = '' + item;
