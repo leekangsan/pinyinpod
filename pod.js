@@ -42,21 +42,29 @@ var timestamp = Date.now();
 var prefix = 'vocab-cmn-';
 var outfile = 'pinyinbase-outfile-' + timestamp + '.js';
 var outfilepbjs = 'pb.js';
-var opts = { encoding: 'utf-8' };
+
+var opts = {
+  encoding: 'utf-8'
+};
+
 var infiledir = './pinyinbase/';
 var outfiledir = './dist/';
-var outfilepath = '';
+var outfilepath = outfiledir + outfile;
 
+var outfile_defaultfile = 'pinyinbase-outfile-' + timestamp + '.js';
 var outfile_jsonfile = 'pb.json';
+var outfile_pbjsfile = 'pb.js';
 
 var output = '';
 var idxarr = [];
 
 // flags
-var testFlag = false;
 var verboseFlag = false;
 var outfileJsonFlag = false;
+var outfilePbjsFlag = false;
+var testFlag = false;
 
+// arrays
 var allfiles = [];
 var files = [];
 
@@ -75,8 +83,7 @@ process.argv.forEach(function (val, index, array) {
         printUpdates('Verbose mode toggled.');
         break;
       case '--pbjs':
-        // short outfile name for convenience
-        outfile = outfilepbjs;
+        outfilePbjsFlag = true;
         printUpdates('Outfile name set to: pb.js');
         break;
       case '--jsonfile':
@@ -152,13 +159,19 @@ for(var i in files) {
 }
 
 printUpdates('... done with files.');
-outfilepath = outfiledir + outfile;
-
 printUpdates('Saving pinyinbase JSON file to ' + outfilepath + '...');
 
-fs.writeFileSync(outfilepath,
+// default (always prints)
+fs.writeFileSync(outfiledir + outfile_defaultfile,
   'var IdxCustomPinyinBase = [\n' + idxarr.join(',\n') + '\n];');
 
+// --pbjs
+if(outfilePbjsFlag) {
+  fs.writeFileSync(outfiledir + outfile_pbjsfile,
+  'var IdxCustomPinyinBase = [\n' + idxarr.join(',\n') + '\n];');
+}
+
+// --jsonfile
 if(outfileJsonFlag) {
   fs.writeFileSync(outfiledir + outfile_jsonfile,
     '[\n' + idxarr.join(',\n') + '\n]');
@@ -173,6 +186,7 @@ printUpdates('Total entries added: ' + idxarr.length);
 
 printUpdates('');
 printUpdates('Exiting...');
+
 printUpdates('');
 
 // all good things
