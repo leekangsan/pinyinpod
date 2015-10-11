@@ -24,6 +24,7 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   + `node pod.js`
     + Outputs a JavaScript file with a Pinyinbase object.
   	+ Pinyinbase object is called `IdxCustomPinyinBase`.
+  	+ You can search this object.
   	+ Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
 
   + `node pod.js --jsonfile`
@@ -35,6 +36,7 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   + `node pod.js --pbjs`
     + Outputs a JavaScript file with a Pinyinbase object.
     + Pinyinbase object is called `IdxCustomPinyinBase`.
+    + You can search this object.
   	+ Outfile name is `pb.js`. Overwrites file, if exists.
 
   + `node pod.js --verbose`
