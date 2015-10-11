@@ -152,7 +152,7 @@ module.exports = function() {
   }
 
   function dmash(str) {
-    return nodigits(nospaces(lower(str)));
+    return nopunct(nodigits(nospaces(lower(str))));
   }
 
   function dbash(str) {
