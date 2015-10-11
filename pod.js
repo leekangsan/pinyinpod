@@ -47,10 +47,15 @@ var infiledir = './pinyinbase/';
 var outfiledir = './dist/';
 var outfilepath = '';
 
+var outfile_jsonfile = 'pb.json';
+
 var output = '';
 var idxarr = [];
+
+// flags
 var testFlag = false;
 var verboseFlag = false;
+var outfileJsonFlag = false;
 
 var allfiles = [];
 var files = [];
@@ -73,6 +78,11 @@ process.argv.forEach(function (val, index, array) {
         // short outfile name for convenience
         outfile = outfilepbjs;
         printUpdates('Outfile name set to: pb.js');
+        break;
+      case '--jsonfile':
+        // output json data file
+        outfileJsonFlag = true;
+        printUpdates('Outfile name set to: pb.json');
         break;
       default:
         // nothing to add
@@ -148,6 +158,11 @@ printUpdates('Saving pinyinbase JSON file to ' + outfilepath + '...');
 
 fs.writeFileSync(outfilepath,
   'var IdxCustomPinyinBase = [\n' + idxarr.join(',\n') + '\n];');
+
+if(outfileJsonFlag) {
+  fs.writeFileSync(outfiledir + outfile_jsonfile,
+    '[\n' + idxarr.join(',\n') + '\n]');
+}
 
 
 printUpdates('');
