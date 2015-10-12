@@ -27,8 +27,8 @@
 
 /**
  * name     : pinyinbase.js
- * version  : 1
- * updated  : 2015-08-31
+ * version  : 2
+ * updated  : 2015-10-11
  * license  : http://unlicense.org/ The Unlicense
  * git      : https://github.com/pffy/javascript-pinyinbase
  *
