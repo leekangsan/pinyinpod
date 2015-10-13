@@ -27,6 +27,11 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   	+ You can search this object.
   	+ Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
 
+  + `node pod.js --cedict`
+    + Outputs a [CEDICT-formatted][cedict_syntax] dictionary file.
+    + Works with legacy Chinese dictionary and learning software.
+    + Outfile name is `pb-cedict-ts-u8.txt`. Overwrites file, if exists.
+
   + `node pod.js --jsonfile`
     + Outputs a raw [JSON][json_home] file.
     + You can [parse the JSON][json_parse] file contents in JavaScript.
@@ -68,19 +73,20 @@ An alternative to the Pinyinbase schema is **[PFFYDICT][gh_pffydict]** schema, w
       + https://github.com/pffy/php-cedict2sqlite (Build)
       + https://github.com/pffy/java-pffydict-sqlite (Query)
     + MariaDB/MySQL
-      + https://github.com/pffy/php-cedict2mysql (Build) 
+      + https://github.com/pffy/php-cedict2mysql (Build)
       + https://github.com/pffy/java-pffydict-mysql (Query)
 
 
 
-[gh_pffydict]: https://github.com/pffy/pffydict
-[gh_getnode]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
-[nodejs_page]: https://nodejs.org/en/download/
-[gh_pinyinbase]: https://github.com/pffy/pinyinbase
+[cedict_syntax]: http://cc-cedict.org/wiki/format:syntax
 [gh_casestudy]: https://github.com/pffy/pinyinbase#case-studies
-[json_home]: http://www.json.org/
-[json_decode]: http://php.net/manual/en/function.json-decode.php
-[json_parse]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-[json_java]: https://github.com/douglascrockford/JSON-java
-[json_api]: http://jsonapi.org/
+[gh_getnode]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
+[gh_pffydict]: https://github.com/pffy/pffydict
+[gh_pinyinbase]: https://github.com/pffy/pinyinbase
 [json_android]: http://developer.android.com/reference/org/json/JSONObject.html
+[json_api]: http://jsonapi.org/
+[json_decode]: http://php.net/manual/en/function.json-decode.php
+[json_home]: http://www.json.org/
+[json_java]: https://github.com/douglascrockford/JSON-java
+[json_parse]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+[nodejs_page]: https://nodejs.org/en/download/
