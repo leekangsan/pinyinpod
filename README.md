@@ -29,11 +29,13 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
   + `node pod.js --cedict`
     + Outputs a [CEDICT-formatted][cedict_syntax] dictionary file.
+    + Entries sorted alphabetically by pinyin.
     + Works with legacy Chinese dictionary and learning software.
     + Outfile name is `pb-cedict-ts-u8.txt`. Overwrites file, if exists.
 
   + `node pod.js --jsonfile`
     + Outputs a raw [JSON][json_home] file.
+    + Entries sorted alphabetically by pinyin.
     + You can [parse the JSON][json_parse] file contents in JavaScript.
     + You can [decode the JSON][json_decode] file contents in PHP.
     + You can [process the JSON][json_android] file contents in Android.
@@ -42,6 +44,7 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   + `node pod.js --pbjs`
     + Outputs a JavaScript file with a Pinyinbase object.
     + Pinyinbase object is called `IdxCustomPinyinBase`.
+    + Entries sorted alphabetically by pinyin.
     + You can search this object.
   	+ Outfile name is `pb.js`. Overwrites file, if exists.
 
@@ -60,7 +63,7 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
 ### Compiling CC-CEDICT
 
-**Using a CC-CEDICT dictioanry source file is possible, but never recommended for [several reasons][gh_casestudy].**
+**Using a CC-CEDICT dictionary source file is possible, but never recommended for [several reasons][gh_casestudy].**
 
 If you really need to use CC-CEDICT dictionary data (e.g., as a customer deliverable), you should rename the dictionary file from `cedict_ts.u8` to something like `vocab-cmn-cedict-data.txt` (anything with the `vocab-cmn-` prefix will do); then, move it to the `pinyinbase` folder.
 
