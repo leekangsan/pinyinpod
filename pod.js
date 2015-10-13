@@ -27,8 +27,8 @@
 
 /**
  * name     : pod.js
- * version  : 7
- * updated  : 2015-10-12
+ * version  : 9
+ * updated  : 2015-10-13
  * license  : http://unlicense.org/ The Unlicense
  * git      : https://github.com/pffy/pinyinpod
  *
@@ -85,17 +85,14 @@ process.argv.forEach(function (val, index, array) {
         break;
       case '--pbjs':
         outfilePbjsFlag = true;
-        printUpdates('Outfile name set to: ' + outfile_pbjsfile);
         break;
       case '--jsonfile':
         // output json data file
         outfileJsonFlag = true;
-        printUpdates('Outfile name set to: ' + outfile_jsonfile);
         break;
       case '--cedict':
         // output cedict dictionary file
         outfileCedictFlag = true;
-        printUpdates('Outfile name set to: ' + outfile_cedictfile);
         break;
       default:
         // nothing to add
@@ -167,33 +164,51 @@ for(var i in files) {
 }
 
 printUpdates('... done with files.');
-printUpdates('Saving pinyinbase JSON file to ' + outfilepath + '...');
+
+printUpdates('');
+printUpdates('Sorting pinyin by alpha ...');
+
+var idx = JSON.parse( '[' + idxarr + ']' );
+idx.sort(sortByPbash);
+var idxString = JSON.stringify(idx);
+
+printUpdates('Done.');
 
 // default (always prints)
-output = 'var IdxCustomPinyinBase = [\n' + idxarr.join(',\n') + '\n];';
+printUpdates('Saving pinyinbase JSON file to ' + outfilepath + '...');
+output = 'var IdxCustomPinyinBase = ' + idxString + ';';
 fs.writeFileSync(outfilepath, output);
+printUpdates('Done.');
 
 // --pbjs
 if(outfilePbjsFlag) {
+  printUpdates('');
+  printUpdates('Exporting to JavaScript library file as: ' + outfile_pbjsfile);
   outfilepath = outfiledir + outfile_pbjsfile;
-  output = 'var IdxCustomPinyinBase = [\n' + idxarr.join(',\n') + '\n];';
+  output = 'var IdxCustomPinyinBase = ' + idxString + ';';
   fs.writeFileSync(outfilepath, output);
+  printUpdates('Done.');
 }
 
 // --jsonfile
 if(outfileJsonFlag) {
+  printUpdates('');
+  printUpdates('Exporting to raw JSON file as: ' + outfile_jsonfile);
   outfilepath = outfiledir + outfile_jsonfile;
-  output = '[\n' + idxarr.join(',\n') + '\n]';
+  output = '' + idxString;
   fs.writeFileSync(outfilepath, output);
+  printUpdates('Done.');
 }
 
 // --cedict
 if(outfileCedictFlag) {
+  printUpdates('');
+  printUpdates('Exporting to CEDICT format dictionary as: ' + outfile_cedictfile);
   outfilepath = outfiledir + outfile_cedictfile;
   output = exportAsCedict();
   fs.writeFileSync(outfilepath, '' + output);
+  printUpdates('Done.');
 }
-
 
 printUpdates('');
 printUpdates('Done.');
@@ -213,6 +228,7 @@ process.exit(0);
 // helper functions
 // ----------------
 
+// (cheaply) validates file
 function isValidFilename(item) {
   item = '' + item;
 
@@ -223,33 +239,29 @@ function isValidFilename(item) {
   return false;
 }
 
+// --verbose
 function printUpdates(str) {
   if(verboseFlag) {
     console.log(str);
   }
 }
 
-function exportAsCedict() {
-  var cedict = '';
-
-  printUpdates('Exporting as CEDICT file ... ');
-
-  idx = JSON.parse( '[' + idxarr + ']' );
-
-  idx.sort(sortByPbash);
-
-  function sortByPbash(a,b){
-    if(a.pbash > b.pbash) {
-      return 1;
-    }
-
-    if(a.pbash < b.pbash) {
-      return -1;
-    }
-
-    return 0;
+// compare function for sorting idx
+function sortByPbash(a,b){
+  if(a.pbash > b.pbash) {
+    return 1;
   }
 
+  if(a.pbash < b.pbash) {
+    return -1;
+  }
+
+  return 0;
+}
+
+// exports JSON data into CEDICT syntax
+function exportAsCedict() {
+  var cedict = '';
   var lines = [];
   var entry = '';
 
@@ -264,11 +276,10 @@ function exportAsCedict() {
   cedict = '' + lines.join('\n');
   cedict = '' + getComments() + '\n' + cedict.trim();
 
-  printUpdates('');
-  printUpdates('...done.');
   return cedict;
 }
 
+// adds hashtag comments to CEDICT export file
 function getComments() {
   return [
     '# Your Custom CEDICT-formatted dictionary.',
