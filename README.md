@@ -30,17 +30,18 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
   + `node pod.js --cedictfile`
     + Outputs a [CEDICT-formatted][cedict_syntax] dictionary file.
+      + Works with legacy Chinese dictionary and learning software.
+      + You can distribute your own custom-branded dictionary in a single file.
     + Entries sorted alphabetically by pinyin.
-    + Works with legacy Chinese dictionary and learning software.
     + Outfile name is `pb-cedict-ts-u8.txt`. Overwrites file, if exists.
     + Outfile created in `dist` folder.
 
   + `node pod.js --jsonfile`
     + Outputs a raw [JSON][json_home] file.
+      + You can [parse the JSON][json_parse] file contents in JavaScript.
+      + You can [decode the JSON][json_decode] file contents in PHP.
+      + You can [process the JSON][json_android] file contents in Android.
     + Entries sorted alphabetically by pinyin.
-    + You can [parse the JSON][json_parse] file contents in JavaScript.
-    + You can [decode the JSON][json_decode] file contents in PHP.
-    + You can [process the JSON][json_android] file contents in Android.
   	+ Outfile name is `pb.json`. Overwrites file, if exists.
     + Outfile created in `dist` folder.
     
