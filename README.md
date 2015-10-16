@@ -25,8 +25,21 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
     + Outputs a JavaScript file with a Pinyinbase object.
   	+ Pinyinbase object is called `IdxCustomPinyinBase`.
   	+ You can search this object.
+    + Entries sorted alphabetically by pinyin.
   	+ Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
   	+ Outfile created in `dist` folder.
+
+  + `node pod.js --clean`
+    + Cleans `dist` outfile folder.
+      + Deletes all files in `dist` folder.
+      + Deletes `dist` folder.
+      + Creates fresh `dist` folder with a new README file.
+    + Outputs a JavaScript file with a Pinyinbase object.
+    + Pinyinbase object is called `IdxCustomPinyinBase`.
+    + You can search this object.
+    + Entries sorted alphabetically by pinyin.
+    + Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
+    + Outfile created in `dist` folder.
 
   + `node pod.js --cedictfile`
     + Outputs a [CEDICT-formatted][cedict_syntax] dictionary file.
@@ -44,12 +57,12 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
     + Entries sorted alphabetically by pinyin.
   	+ Outfile name is `pb.json`. Overwrites file, if exists.
     + Outfile created in `dist` folder.
-    
+
   + `node pod.js --pbjs`
     + Outputs a JavaScript file with a Pinyinbase object.
     + Pinyinbase object is called `IdxCustomPinyinBase`.
-    + Entries sorted alphabetically by pinyin.
     + You can search this object.
+    + Entries sorted alphabetically by pinyin.
   	+ Outfile name is `pb.js`. Overwrites file, if exists.
     + Outfile created in `dist` folder.
 
@@ -57,7 +70,7 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   	+ Verbose mode. Too much information.
 
 #### Command Line Examples
-  	
+
 + `node pod.js --verbose --pbjs`
   + Generates default JavaScript library.
   + Generates JavaScript library named `pb.js`.
@@ -93,7 +106,7 @@ If you really need to use CC-CEDICT dictionary data (e.g., as a customer deliver
 
 **The Pinyinbase schema is pinyin-optimized for JSON or NoSQL search.** However, you may be looking for something else.
 
-An alternative to the Pinyinbase schema is **[PFFYDICT][gh_pffydict]** schema, which is pinyin-optimized for relational database search. So, are you using SQLite? MySQL? MariaDB? 
+An alternative to the Pinyinbase schema is **[PFFYDICT][gh_pffydict]** schema, which is pinyin-optimized for relational database search. So, are you using SQLite? MySQL? MariaDB?
 
 Then, try out PFFYDICT:
 
