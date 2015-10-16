@@ -63,7 +63,7 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
 ### Compiling CC-CEDICT
 
-**Using a CC-CEDICT dictionary source file is possible, but never recommended for [several reasons][gh_casestudy].**
+**Using a CC-CEDICT dictionary source file is possible, but NEVER recommended for [several reasons][gh_casestudy].**
 
 If you really need to use CC-CEDICT dictionary data (e.g., as a customer deliverable), you should rename the dictionary file from `cedict_ts.u8` to something like `vocab-cmn-cedict-data.txt` (anything with the `vocab-cmn-` prefix will do); then, move it to the `pinyinbase` folder.
 
