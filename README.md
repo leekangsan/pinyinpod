@@ -56,9 +56,11 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   	+ Verbose mode. Too much information.
 
   + Exempli Gratia...
-  	+ `node pod.js --verbose --pbjs`
-  	  + verbose mode toggled
+  	
+    + `node pod.js --verbose --pbjs`
+  	  + Verbose Mode prints compile and export to terminal screen
   	  + Generates JavaScript library named `pb.js`
+  	
   	+ `node pod.js --cedict --jsonfile`
   	  + Generates CEDICT export file
   	  + Generates JSON export file
