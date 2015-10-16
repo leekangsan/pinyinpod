@@ -76,21 +76,27 @@ process.argv.forEach(function (val, index, array) {
     switch(val) {
       case '--verbose':
         // shows compile info
+        // TODO: add earlier detection for --verbose flag
         verboseFlag = true;
         printUpdates('Verbose mode toggled.');
         break;
       case '--pbjs':
         outfilePbjsFlag = true;
+        printUpdates(outfile_pbjsfile
+          + ' JavaScript library filename export toggled.');
         break;
       case '--jsonfile':
         outfileJsonFlag = true;
+        printUpdates('JSON file export toggled.');
         break;
       case '--cedict':
       case '--cedictfile':
         outfileCedictFlag = true;
+        printUpdates('CEDICT file export toggled.');
         break;
       case '--clean':
         cleanOutfileFlag = true;
+        printUpdates('Outfile directory will be cleaned.');
         break;
       default:
         // nothing to add
