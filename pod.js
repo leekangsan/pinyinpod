@@ -27,8 +27,8 @@
 
 /**
  * name     : pod.js
- * version  : 9
- * updated  : 2015-10-13
+ * version  : 11
+ * updated  : 2015-10-16
  * license  : http://unlicense.org/ The Unlicense
  * git      : https://github.com/pffy/pinyinpod
  *
@@ -49,6 +49,7 @@ var outfile_defaultfile = 'pinyinbase-outfile-' + timestamp + '.js';
 var outfile_jsonfile = 'pb.json';
 var outfile_pbjsfile = 'pb.js';
 var outfile_cedictfile = 'pb-cedict-ts-u8.txt';
+var outfile_readmefile = 'README.md';
 
 var infiledir = './pinyinbase/';
 var outfiledir = './dist/';
@@ -62,23 +63,19 @@ var verboseFlag = false;
 var outfileJsonFlag = false;
 var outfilePbjsFlag = false;
 var outfileCedictFlag = false;
+var cleanOutfileFlag = false;
 var testFlag = false;
 
 // arrays
 var allfiles = [];
 var files = [];
 
-// check for dist folder
-if(!fs.existsSync(outfiledir)) {
-  fs.mkdirSync(outfiledir);
-}
-
 // processing command line arguments
 process.argv.forEach(function (val, index, array) {
   if(index > 1) {
     switch(val) {
       case '--verbose':
-        // shows steps and stuff
+        // shows compile info
         verboseFlag = true;
         printUpdates('Verbose mode toggled.');
         break;
@@ -86,13 +83,14 @@ process.argv.forEach(function (val, index, array) {
         outfilePbjsFlag = true;
         break;
       case '--jsonfile':
-        // output json data file
         outfileJsonFlag = true;
         break;
       case '--cedict':
       case '--cedictfile':
-        // output cedict dictionary file
         outfileCedictFlag = true;
+        break;
+      case '--clean':
+        cleanOutfileFlag = true;
         break;
       default:
         // nothing to add
@@ -100,6 +98,41 @@ process.argv.forEach(function (val, index, array) {
     }
   }
 });
+
+
+// check for dist folder
+if(!fs.existsSync(outfiledir)) {
+  createDistFolder();
+} else {
+
+  // --clean
+  if(cleanOutfileFlag) {
+
+    var filelist = fs.readdirSync(outfiledir);
+
+    try {
+      // delete dist folder contents
+      for(var id in filelist) {
+        printUpdates('Deleting outfile ... ' + outfiledir + filelist[id]);
+        fs.unlinkSync(outfiledir + filelist[id]);
+        printUpdates('Done.');
+      }
+
+      // delete dist folder
+      printUpdates('Deleting folder ... ' + outfiledir);
+      fs.rmdirSync(outfiledir);
+      printUpdates('Done.');
+    } catch (e) {
+      printUpdates('ERR: unable to clean outfile directory called ['
+        + outfiledir + ']. Try closing open files.');
+      printUpdates(e);
+    }
+
+    createDistFolder();
+  }
+}
+
+// begin compiling dictionary data
 
 allfiles = fs.readdirSync(infiledir);
 files = allfiles.filter(isValidFilename);
@@ -125,7 +158,7 @@ for(var i in files) {
   contents = fs.readFileSync('' + filepath, opts);
 
   printUpdates('');
-  printUpdates('... done.');
+  printUpdates('Done.');
 
   if(!contents) {
     printUpdates('');
@@ -291,4 +324,21 @@ function getComments() {
     '# https://github.com/pffy/pinyinbase',
     '#'
   ].join('\n');
+}
+
+// dist README.md
+function getDistReadmeContents() {
+  return [
+    '# dist',
+    '',
+    'Output files go here.'
+  ].join('\n');
+}
+
+// create dist folder
+function createDistFolder(){
+  printUpdates('Creating folder ' + outfiledir + ' ...');
+  fs.mkdirSync(outfiledir);
+  fs.writeFileSync(outfiledir + outfile_readmefile,
+    getDistReadmeContents());
 }
