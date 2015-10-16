@@ -91,9 +91,11 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
 If you really need to use CC-CEDICT dictionary data (e.g., as a customer deliverable), you should rename the dictionary file from `cedict_ts.u8` to something like `vocab-cmn-cedict-data.txt` (anything with the `vocab-cmn-` prefix will do); then, move it to the `pinyinbase` folder.
 
-**The Pinyinbase schema is pinyin-optimized for JSON or NoSQL search.** However, you may be looking for something elese.
+**The Pinyinbase schema is pinyin-optimized for JSON or NoSQL search.** However, you may be looking for something else.
 
-An alternative to the Pinyinbase schema is **[PFFYDICT][gh_pffydict]** schema, which is pinyin-optimized for relational database search. So, are you using SQLite? MySQL? MariaDB? Then, try out PFFYDICT:
+An alternative to the Pinyinbase schema is **[PFFYDICT][gh_pffydict]** schema, which is pinyin-optimized for relational database search. So, are you using SQLite? MySQL? MariaDB? 
+
+Then, try out PFFYDICT:
 
   + [PFFYDICT Dictionary Schema][gh_pffydict]
     + SQLite
