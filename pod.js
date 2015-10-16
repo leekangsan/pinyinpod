@@ -72,14 +72,16 @@ var files = [];
 
 // processing command line arguments
 process.argv.forEach(function (val, index, array) {
+  // first things first:
+  // no matter where verbose is located in flag order, it is first detected
+  if(!verboseFlag && array.indexOf('--verbose') > -1) {
+    verboseFlag = true;
+    printUpdates('Verbose mode toggled.');
+  }
+
+  // other flags in no particular order
   if(index > 1) {
     switch(val) {
-      case '--verbose':
-        // shows compile info
-        // TODO: add earlier detection for --verbose flag
-        verboseFlag = true;
-        printUpdates('Verbose mode toggled.');
-        break;
       case '--pbjs':
         outfilePbjsFlag = true;
         printUpdates(outfile_pbjsfile
