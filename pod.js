@@ -78,7 +78,6 @@ process.argv.forEach(function (val, index, array) {
   if(index > 1) {
     switch(val) {
       case '--verbose':
-      case '-v':
         // shows steps and stuff
         verboseFlag = true;
         printUpdates('Verbose mode toggled.');
@@ -91,6 +90,7 @@ process.argv.forEach(function (val, index, array) {
         outfileJsonFlag = true;
         break;
       case '--cedict':
+      case '--cedictfile':
         // output cedict dictionary file
         outfileCedictFlag = true;
         break;
