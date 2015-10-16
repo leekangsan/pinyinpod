@@ -56,30 +56,30 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   + `node pod.js --verbose`
   	+ Verbose mode. Too much information.
 
-  #### Command Line Examples
+#### Command Line Examples
   	
-    + `node pod.js --verbose --pbjs`
-  	  + Generates default JavaScript library.
-  	  + Generates JavaScript library named `pb.js`.
-  	  + Displays dictionary compile info.
-  	
-  	+ `node pod.js --cedictfile --jsonfile`
-      + Generates default JavaScript library.
-  	  + Generates CEDICT export file.
-  	  + Generates JSON export file.
-  	  + Does all this, quietly.
++ `node pod.js --verbose --pbjs`
+  + Generates default JavaScript library.
+  + Generates JavaScript library named `pb.js`.
+  + Displays dictionary compile info.
 
-  	+ `node pod.js --verbose --jsonfile >> foo.txt`
-      + Generates default JavaScript library.
-  	  + Appends compile info to a file named `foo.txt`
-  	  + Generates JSON export file.
-  	  + No output to screen.
++ `node pod.js --cedictfile --jsonfile`
+  + Generates default JavaScript library.
+  + Generates CEDICT export file.
+  + Generates JSON export file.
+  + Does all this, quietly.
 
-  	+ `node pod.js --verbose --cedictfile > log.txt`
-      + Generates default JavaScript library.
-  	  + Creates (or overwrites) compile info to a file named `log.txt`
-  	  + Generates CEDICT export file.
-  	  + No output to screen.
++ `node pod.js --verbose --jsonfile >> foo.txt`
+  + Generates default JavaScript library.
+  + Appends compile info to a file named `foo.txt`
+  + Generates JSON export file.
+  + No output to screen.
+
++ `node pod.js --verbose --cedictfile > log.txt`
+  + Generates default JavaScript library.
+  + Creates (or overwrites) compile info to a file named `log.txt`
+  + Generates CEDICT export file.
+  + No output to screen.
 
 ### Slow Down, Turbo
 
