@@ -26,12 +26,14 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   	+ Pinyinbase object is called `IdxCustomPinyinBase`.
   	+ You can search this object.
   	+ Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
+  	+ Outfile created in `dist` folder.
 
   + `node pod.js --cedict`
     + Outputs a [CEDICT-formatted][cedict_syntax] dictionary file.
     + Entries sorted alphabetically by pinyin.
     + Works with legacy Chinese dictionary and learning software.
     + Outfile name is `pb-cedict-ts-u8.txt`. Overwrites file, if exists.
+    + Outfile created in `dist` folder.
 
   + `node pod.js --jsonfile`
     + Outputs a raw [JSON][json_home] file.
@@ -40,13 +42,15 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
     + You can [decode the JSON][json_decode] file contents in PHP.
     + You can [process the JSON][json_android] file contents in Android.
   	+ Outfile name is `pb.json`. Overwrites file, if exists.
-
+    + Outfile created in `dist` folder.
+    
   + `node pod.js --pbjs`
     + Outputs a JavaScript file with a Pinyinbase object.
     + Pinyinbase object is called `IdxCustomPinyinBase`.
     + Entries sorted alphabetically by pinyin.
     + You can search this object.
   	+ Outfile name is `pb.js`. Overwrites file, if exists.
+    + Outfile created in `dist` folder.
 
   + `node pod.js --verbose`
   	+ Verbose mode. Too much information.
@@ -54,7 +58,11 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   + Exempli Gratia...
   	+ `node pod.js --verbose --pbjs`
   	  + verbose mode toggled
-  	  + outfile name is `pb.js`
+  	  + Generates JavaScript library named `pb.js`
+  	+ `node pod.js --cedict --jsonfile`
+  	  + Generates CEDICT export file
+  	  + Generates JSON export file
+  	  + Does this quietly
 
 
 ### Slow Down, Turbo
