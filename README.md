@@ -145,7 +145,7 @@
 
 If you really need to use CC-CEDICT dictionary data (e.g., as a customer deliverable), you should rename the dictionary file from `cedict_ts.u8` to something like `vocab-cmn-cedict-data.txt` (anything with the `vocab-cmn-` prefix will do); then, move it to the `pinyinbase` folder.
 
-**The Pinyinbase schema is pinyin-optimized for JSON or NoSQL search.** However, you may be looking for something else.
+**The [Pinyinbase schema][schema_pb] is pinyin-optimized for JSON or NoSQL search.** However, you may be looking for something else.
 
 An alternative to the Pinyinbase schema is **[PFFYDICT][gh_pffydict]** schema, which is pinyin-optimized for relational database search. So, are you using SQLite? MySQL? MariaDB?
 
@@ -159,14 +159,14 @@ Then, try out PFFYDICT:
       + https://github.com/pffy/php-cedict2mysql (Build)
       + https://github.com/pffy/java-pffydict-mysql (Query)
 
-[gh_clean]:https://github.com/pffy/pinyinpod/blob/master/README.md#--clean
-[gh_podjs]: https://github.com/pffy/pinyinpod/blob/master/README.md#podjs
-[gh_js_pinyinbase]: https://github.com/pffy/javascript-pinyinbase
 [cedict_syntax]: http://cc-cedict.org/wiki/format:syntax
 [gh_casestudy]: https://github.com/pffy/pinyinbase#case-studies
+[gh_clean]:https://github.com/pffy/pinyinpod/blob/master/README.md#--clean
 [gh_getnode]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
+[gh_js_pinyinbase]: https://github.com/pffy/javascript-pinyinbase
 [gh_pffydict]: https://github.com/pffy/pffydict
 [gh_pinyinbase]: https://github.com/pffy/pinyinbase
+[gh_podjs]: https://github.com/pffy/pinyinpod/blob/master/README.md#podjs
 [json_android]: http://developer.android.com/reference/org/json/JSONObject.html
 [json_api]: http://jsonapi.org/
 [json_decode]: http://php.net/manual/en/function.json-decode.php
@@ -174,3 +174,4 @@ Then, try out PFFYDICT:
 [json_java]: https://github.com/douglascrockford/JSON-java
 [json_parse]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
 [nodejs_page]: https://nodejs.org/en/download/
+[schema_pb]: https://github.com/pffy/pinyinbase/blob/master/README.md#pinyinbase-schema
