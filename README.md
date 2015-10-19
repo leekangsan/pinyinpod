@@ -21,7 +21,9 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
 ### Command Line Parameters
 
-  + `node pod.js`
+### `pod.js`
+
+  + `$ node pod.js`
     + Outputs a JavaScript file with a Pinyinbase object.
   	+ Pinyinbase object is called `IdxCustomPinyinBase`.
   	+ You can search this object.
@@ -29,19 +31,22 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   	+ Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
   	+ Outfile created in `dist` folder.
 
-  + `node pod.js --clean`
-    + Cleans `dist` outfile folder.
-      + Deletes all files in `dist` folder.
-      + Deletes `dist` folder.
-      + Creates fresh `dist` folder with a new README file.
-    + Outputs a JavaScript file with a Pinyinbase object.
-    + Pinyinbase object is called `IdxCustomPinyinBase`.
-    + You can search this object.
-    + Entries sorted alphabetically by pinyin.
-    + Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
-    + Outfile created in `dist` folder.
+### `--clean`
+
+  + `$ node pod.js --clean`
+  + Cleans `dist` outfile folder.
+  + Deletes all files in `dist` folder.
+  + Deletes `dist` folder.
+  + Creates fresh `dist` folder with a new README file.
+  + Outputs a JavaScript file with a Pinyinbase object.
+  + Pinyinbase object is called `IdxCustomPinyinBase`.
+  + You can search this object.
+  + Entries sorted alphabetically by pinyin.
+  + Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
+  + Outfile created in `dist` folder.
 
 ### `--cedictfile`
+
   + `$ node pod.js --cedictfile`
   + Outputs a [CEDICT-formatted][cedict_syntax] dictionary file.
     + Works with legacy Chinese dictionary and learning software.
