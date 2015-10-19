@@ -102,34 +102,35 @@
 + `$ node pod.js --jsonfile --clean-only`
   + Toggles **clean-only mode**, cleans outfile directory, then exits.
   + Does not export JSON file.
-  + Does not perform default actions.
+  + Does not perform [default actions][gh_podjs].
   + No output to screen.
 
 + `$ node pod.js --verbose --clean-only`
   + Toggles clean-only mode, cleans outfile directory, then exits.
+  + Does not perform [default actions][gh_podjs].
   + Prints program info to screen.
 
 + `$ node pod.js --verbose --pbjs`
-  + Performs default actions.
+  + Performs [default actions][gh_podjs].
   + Exports JavaScript library file named `pb.js`.
   + Prints program info to screen.
 
 + `$ node pod.js --cedictfile --jsonfile`
-  + Performs default actions.
+  + Performs [default actions][gh_podjs].
   + Generates CEDICT export file.
   + Generates JSON export file.
   + No output to screen.
 
 + `$ node pod.js --verbose --jsonfile >> foo.txt`
-  + Generates default JavaScript library.
-  + Appends compile info to a file named `foo.txt`
+  + Performs [default actions][gh_podjs].
   + Generates JSON export file.
+  + Appends compile info to a file named `foo.txt`
   + No output to screen.
 
 + `$ node pod.js --verbose --cedictfile > log.txt`
-  + Generates default JavaScript library.
-  + Creates (or overwrites) compile info to a file named `log.txt`
+  + Performs [default actions][gh_podjs].
   + Generates CEDICT export file.
+  + Creates (or overwrites) compile info to a file named `log.txt`
   + No output to screen.
 
 ### Slow Down, Turbo
