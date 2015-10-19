@@ -1,6 +1,9 @@
 # pinyinpod
-Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
++ Requires [Node.js][nodejs_page].
++ Compiles Pinyinbase glossaries to JSON files. 
++ Sorts all entries by pinyin, alphabetically.
++ Export as CEDICT text files.
 
 ### Quick Start
 
