@@ -51,6 +51,7 @@
 + Performs [cleaning actions][gh_clean].
 + Promptly exits when cleaning is done.
   + Does not perform [default actions][gh_podjs].
+  + Exports nothing.
   + When used, all other flags (except `--verbose`) are ignored.
 
 ### `--cedictfile`
@@ -93,21 +94,22 @@
 #### Command Line Examples
 
 + `$ node pod.js --cedictfile --clean --verbose --jsonfile`
-  + Cleans outfile directory.
-  + Performs default actions.
+  + Performs [cleaning actions][gh_clean].
+  + Performs [default actions][gh_podjs].
   + Exports to CEDICT file.
   + Exports to JSON file.
   + Prints program info to screen.
 
 + `$ node pod.js --jsonfile --clean-only`
-  + Toggles **clean-only mode**, cleans outfile directory, then exits.
-  + Does not export JSON file.
+  + Performs [cleaning actions][gh_clean].
   + Does not perform [default actions][gh_podjs].
+  + Exports nothing.
   + No output to screen.
 
 + `$ node pod.js --verbose --clean-only`
-  + Toggles clean-only mode, cleans outfile directory, then exits.
+  + Performs [cleaning actions][gh_clean].
   + Does not perform [default actions][gh_podjs].
+  + Exports nothing.
   + Prints program info to screen.
 
 + `$ node pod.js --verbose --pbjs`
