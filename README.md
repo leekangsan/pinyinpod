@@ -92,24 +92,41 @@
 
 #### Command Line Examples
 
-+ `node pod.js --verbose --pbjs`
-  + Generates default JavaScript library.
-  + Generates JavaScript library named `pb.js`.
-  + Displays dictionary compile info.
++ `$ node pod.js --cedictfile --clean --verbose --jsonfile`
+  + Cleans outfile directory.
+  + Performs default actions.
+  + Exports to CEDICT file.
+  + Exports to JSON file.
+  + Prints program info to screen.
 
-+ `node pod.js --cedictfile --jsonfile`
-  + Generates default JavaScript library.
++ `$ node pod.js --jsonfile --clean-only`
+  + Toggles **clean-only mode**, cleans outfile directory, then exits.
+  + Does not export JSON file.
+  + Does not perform default actions.
+  + No output to screen.
+
++ `$ node pod.js --verbose --clean-only`
+  + Toggles clean-only mode, cleans outfile directory, then exits.
+  + Prints program info to screen.
+
++ `$ node pod.js --verbose --pbjs`
+  + Performs default actions.
+  + Exports JavaScript library file named `pb.js`.
+  + Prints program info to screen.
+
++ `$ node pod.js --cedictfile --jsonfile`
+  + Performs default actions.
   + Generates CEDICT export file.
   + Generates JSON export file.
-  + Does all this, quietly.
+  + No output to screen.
 
-+ `node pod.js --verbose --jsonfile >> foo.txt`
++ `$ node pod.js --verbose --jsonfile >> foo.txt`
   + Generates default JavaScript library.
   + Appends compile info to a file named `foo.txt`
   + Generates JSON export file.
   + No output to screen.
 
-+ `node pod.js --verbose --cedictfile > log.txt`
++ `$ node pod.js --verbose --cedictfile > log.txt`
   + Generates default JavaScript library.
   + Creates (or overwrites) compile info to a file named `log.txt`
   + Generates CEDICT export file.
