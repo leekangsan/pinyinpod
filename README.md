@@ -39,12 +39,12 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   + Deletes all files in `dist` folder.
   + Deletes `dist` folder.
   + Creates fresh `dist` folder with a new README file.
-+ Performs [default actions][gh_podjs]).
++ Performs [default actions][gh_podjs].
 
 ### `--cedictfile`
 
 + `$ node pod.js --cedictfile`
-+ Performs [default actions][gh_podjs]).
++ Performs [default actions][gh_podjs].
 + Outputs a [CEDICT-formatted][cedict_syntax] dictionary file.
   + Works with legacy Chinese dictionary and learning software.
   + You can distribute your own custom-branded dictionary in a single file.
@@ -54,7 +54,7 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 ### `--jsonfile`
 
 + `$ node pod.js --jsonfile`
-+ Performs [default actions][gh_podjs])
++ Performs [default actions][gh_podjs].
 + Outputs a raw [JSON][json_home] file.
   + You can [parse the JSON][json_parse] file contents in JavaScript.
   + You can [decode the JSON][json_decode] file contents in PHP.
@@ -65,7 +65,7 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 ### `--pbjs`
 
 + `$ node pod.js --pbjs`
-+ Performs [default actions][gh_podjs]).
++ Performs [default actions][gh_podjs].
 + Outputs copy of default file with convenience filename.
   + Outfile name is `pb.js`. Overwrites file, if exists.
   + Outfile created in `dist` folder.
@@ -75,7 +75,7 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 + `$ node pod.js --verbose`
 + Toggles verbose mode. 
   + Prints compile information to screen.
-+ Performs [default actions][gh_podjs]).
++ Performs [default actions][gh_podjs].
 
 
 #### Command Line Examples
