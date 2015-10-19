@@ -41,32 +41,39 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
     + Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
     + Outfile created in `dist` folder.
 
-  + `node pod.js --cedictfile`
-    + Outputs a [CEDICT-formatted][cedict_syntax] dictionary file.
-      + Works with legacy Chinese dictionary and learning software.
-      + You can distribute your own custom-branded dictionary in a single file.
-    + Entries sorted alphabetically by pinyin.
-    + Outfile name is `pb-cedict-ts-u8.txt`. Overwrites file, if exists.
-    + Outfile created in `dist` folder.
+### `--cedictfile`
+  + `$ node pod.js --cedictfile`
+  + Outputs a [CEDICT-formatted][cedict_syntax] dictionary file.
+    + Works with legacy Chinese dictionary and learning software.
+    + You can distribute your own custom-branded dictionary in a single file.
+  + Entries sorted alphabetically by pinyin.
+  + Outfile name is `pb-cedict-ts-u8.txt`. Overwrites file, if exists.
+  + Outfile created in `dist` folder.
 
-  + `node pod.js --jsonfile`
-    + Outputs a raw [JSON][json_home] file.
-      + You can [parse the JSON][json_parse] file contents in JavaScript.
-      + You can [decode the JSON][json_decode] file contents in PHP.
-      + You can [process the JSON][json_android] file contents in Android.
-    + Entries sorted alphabetically by pinyin.
-  	+ Outfile name is `pb.json`. Overwrites file, if exists.
-    + Outfile created in `dist` folder.
+### `--jsonfile`
 
-  + `node pod.js --pbjs`
-    + Outputs a JavaScript file with a Pinyinbase object.
-    + Pinyinbase object is called `IdxCustomPinyinBase`.
-    + You can search this object.
-    + Entries sorted alphabetically by pinyin.
-  	+ Outfile name is `pb.js`. Overwrites file, if exists.
-    + Outfile created in `dist` folder.
+  + `$ node pod.js --jsonfile`
+  + Outputs a raw [JSON][json_home] file.
+    + You can [parse the JSON][json_parse] file contents in JavaScript.
+    + You can [decode the JSON][json_decode] file contents in PHP.
+    + You can [process the JSON][json_android] file contents in Android.
+  + Entries sorted alphabetically by pinyin.
+	+ Outfile name is `pb.json`. Overwrites file, if exists.
+  + Outfile created in `dist` folder.
 
-  + `node pod.js --verbose`
+### `--pbjs`
+
+  + `$ node pod.js --pbjs`
+  + Outputs a JavaScript file with a Pinyinbase object.
+  + Pinyinbase object is called `IdxCustomPinyinBase`.
+  + You can search this object.
+  + Entries sorted alphabetically by pinyin.
+	+ Outfile name is `pb.js`. Overwrites file, if exists.
+  + Outfile created in `dist` folder.
+
+### `--verbose`
+
+  + `$ node pod.js --verbose`
   	+ Verbose mode. Too much information.
 
 #### Command Line Examples
