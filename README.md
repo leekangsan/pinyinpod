@@ -35,9 +35,9 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
 
   + `$ node pod.js --clean`
   + Cleans `dist` outfile folder.
-  + Deletes all files in `dist` folder.
-  + Deletes `dist` folder.
-  + Creates fresh `dist` folder with a new README file.
+    + Deletes all files in `dist` folder.
+    + Deletes `dist` folder.
+    + Creates fresh `dist` folder with a new README file.
   + Outputs a JavaScript file with a Pinyinbase object.
   + Pinyinbase object is called `IdxCustomPinyinBase`.
   + You can search this object.
