@@ -27,8 +27,8 @@
 
 /**
  * name     : pod.js
- * version  : 11
- * updated  : 2015-10-16
+ * version  : 13
+ * updated  : 2015-10-18
  * license  : http://unlicense.org/ The Unlicense
  * git      : https://github.com/pffy/pinyinpod
  *
@@ -64,23 +64,41 @@ var outfileJsonFlag = false;
 var outfilePbjsFlag = false;
 var outfileCedictFlag = false;
 var cleanOutfileFlag = false;
+var exitAfterCleanFlag = false;
 var testFlag = false;
 
 // arrays
 var allfiles = [];
 var files = [];
 
+
 // processing command line arguments
 process.argv.forEach(function (val, index, array) {
   // first things first:
   // no matter where verbose is located in flag order, it is first detected
   if(!verboseFlag && array.indexOf('--verbose') > -1) {
+
     verboseFlag = true;
+
+    printUpdates('');
     printUpdates('Verbose mode toggled.');
   }
 
+  if(!exitAfterCleanFlag && array.indexOf('--clean-only') > -1) {
+
+    cleanOutfileFlag = true;
+    exitAfterCleanFlag = true;
+
+    printUpdates('');
+    printUpdates('Clean-only mode toggled.');
+
+    printUpdates('Outfile directory will be cleaned.');
+    printUpdates('After that, program will promptly exit.');
+  }
+
   // other flags in no particular order
-  if(index > 1) {
+  if(!exitAfterCleanFlag && (index > 1) ) {
+    printUpdates('');
     switch(val) {
       case '--pbjs':
         outfilePbjsFlag = true;
@@ -114,6 +132,7 @@ if(!fs.existsSync(outfiledir)) {
 } else {
 
   // --clean
+  // --clean-only
   if(cleanOutfileFlag) {
 
     var filelist = fs.readdirSync(outfiledir);
@@ -121,15 +140,21 @@ if(!fs.existsSync(outfiledir)) {
     try {
       // delete dist folder contents
       for(var id in filelist) {
+
+        printUpdates('');
         printUpdates('Deleting outfile ... ' + outfiledir + filelist[id]);
+
         fs.unlinkSync(outfiledir + filelist[id]);
         printUpdates('Done.');
       }
 
       // delete dist folder
+      printUpdates('');
       printUpdates('Deleting folder ... ' + outfiledir);
+
       fs.rmdirSync(outfiledir);
       printUpdates('Done.');
+
     } catch (e) {
       printUpdates('ERR: unable to clean outfile directory called ['
         + outfiledir + ']. Try closing open files.');
@@ -138,6 +163,19 @@ if(!fs.existsSync(outfiledir)) {
 
     createDistFolder();
   }
+}
+
+// --clean-only
+if(exitAfterCleanFlag) {
+
+  printUpdates('');
+  printUpdates('Done cleaning.');
+
+  printUpdates('');
+  printUpdates('Exiting...');
+
+  // all good things
+  process.exit(0); // exit
 }
 
 // begin compiling dictionary data
@@ -215,7 +253,8 @@ var idxString = JSON.stringify(idx);
 
 printUpdates('Done.');
 
-// default (always prints)
+// default (usually prints)
+printUpdates('');
 printUpdates('Saving pinyinbase JSON file to ' + outfilepath + '...');
 output = 'var IdxCustomPinyinBase = ' + idxString + ';';
 fs.writeFileSync(outfilepath, output);
@@ -345,8 +384,14 @@ function getDistReadmeContents() {
 
 // create dist folder
 function createDistFolder(){
+
+  printUpdates('');
   printUpdates('Creating folder ' + outfiledir + ' ...');
   fs.mkdirSync(outfiledir);
+
+  printUpdates('Adding README.md ...');
   fs.writeFileSync(outfiledir + outfile_readmefile,
     getDistReadmeContents());
+
+  printUpdates('Done.');
 }
