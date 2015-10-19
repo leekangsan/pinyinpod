@@ -39,48 +39,44 @@ Compiles glossaries to Pinyinbase JSON files. Requires [Node.js][nodejs_page].
   + Deletes all files in `dist` folder.
   + Deletes `dist` folder.
   + Creates fresh `dist` folder with a new README file.
-+ Outputs a JavaScript file with a Pinyinbase object.
-+ Pinyinbase object is called `IdxCustomPinyinBase`.
-+ You can search this object.
-+ Entries sorted alphabetically by pinyin.
-+ Outfile name is `pinyinbase-outfile-{unix-timestamp}.js`.
-+ Outfile created in `dist` folder.
++ Performs [default actions][gh_podjs]).
 
 ### `--cedictfile`
 
 + `$ node pod.js --cedictfile`
++ Performs [default actions][gh_podjs]).
 + Outputs a [CEDICT-formatted][cedict_syntax] dictionary file.
   + Works with legacy Chinese dictionary and learning software.
   + You can distribute your own custom-branded dictionary in a single file.
-+ Entries sorted alphabetically by pinyin.
-+ Outfile name is `pb-cedict-ts-u8.txt`. Overwrites file, if exists.
-+ Outfile created in `dist` folder.
+  + Outfile name is `pb-cedict-ts-u8.txt`. Overwrites file, if exists.
+  + Outfile created in `dist` folder.
 
 ### `--jsonfile`
 
 + `$ node pod.js --jsonfile`
++ Performs [default actions][gh_podjs])
 + Outputs a raw [JSON][json_home] file.
   + You can [parse the JSON][json_parse] file contents in JavaScript.
   + You can [decode the JSON][json_decode] file contents in PHP.
   + You can [process the JSON][json_android] file contents in Android.
-+ Entries sorted alphabetically by pinyin.
-+ Outfile name is `pb.json`. Overwrites file, if exists.
-+ Outfile created in `dist` folder.
+  + Outfile name is `pb.json`. Overwrites file, if exists.
+  + Outfile created in `dist` folder.
 
 ### `--pbjs`
 
 + `$ node pod.js --pbjs`
-+ Outputs a JavaScript file with a Pinyinbase object.
-+ Pinyinbase object is called `IdxCustomPinyinBase`.
-+ You can search this object.
-+ Entries sorted alphabetically by pinyin.
-+ Outfile name is `pb.js`. Overwrites file, if exists.
-+ Outfile created in `dist` folder.
++ Performs [default actions][gh_podjs]).
++ Outputs copy of default file with convenience filename.
+  + Outfile name is `pb.js`. Overwrites file, if exists.
+  + Outfile created in `dist` folder.
 
 ### `--verbose`
 
 + `$ node pod.js --verbose`
-+ Verbose mode. Too much information.
++ Toggles verbose mode. 
+  + Prints compile information to screen.
++ Performs [default actions][gh_podjs]).
+
 
 #### Command Line Examples
 
@@ -131,7 +127,7 @@ Then, try out PFFYDICT:
       + https://github.com/pffy/php-cedict2mysql (Build)
       + https://github.com/pffy/java-pffydict-mysql (Query)
 
-
+[gh_podjs]: https://github.com/pffy/pinyinpod/blob/master/README.md#podjs
 [gh_js_pinyinbase]: https://github.com/pffy/javascript-pinyinbase
 [cedict_syntax]: http://cc-cedict.org/wiki/format:syntax
 [gh_casestudy]: https://github.com/pffy/pinyinbase#case-studies
