@@ -1,7 +1,7 @@
 # pinyinpod
 
 + Requires [Node.js][nodejs_page].
-+ Compiles Pinyinbase glossaries to JSON files. 
++ Compiles Pinyinbase glossaries to JSON files.
 + Sorts all entries by pinyin, alphabetically.
 + Export as CEDICT text files.
 
@@ -44,6 +44,15 @@
   + Creates fresh `dist` folder with a new README file.
 + Performs [default actions][gh_podjs].
 
+### `--clean-only`
+
++ `$ node pod.js --clean-only`
++ Toggles **clean-only mode.**
++ Performs [cleaning actions][gh_clean].
++ Promptly exits when cleaning is done.
+  + Does not perform [default actions][gh_podjs].
+  + When used, all other flags (except `--verbose`) are ignored.
+
 ### `--cedictfile`
 
 + `$ node pod.js --cedictfile`
@@ -76,7 +85,7 @@
 ### `--verbose`
 
 + `$ node pod.js --verbose`
-+ Toggles verbose mode. 
++ Toggles **verbose mode.**
   + Prints compile information to screen.
 + Performs [default actions][gh_podjs].
 
@@ -130,6 +139,7 @@ Then, try out PFFYDICT:
       + https://github.com/pffy/php-cedict2mysql (Build)
       + https://github.com/pffy/java-pffydict-mysql (Query)
 
+[gh_clean]:https://github.com/pffy/pinyinpod/blob/master/README.md#--clean
 [gh_podjs]: https://github.com/pffy/pinyinpod/blob/master/README.md#podjs
 [gh_js_pinyinbase]: https://github.com/pffy/javascript-pinyinbase
 [cedict_syntax]: http://cc-cedict.org/wiki/format:syntax
