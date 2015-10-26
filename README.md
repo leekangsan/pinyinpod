@@ -3,7 +3,7 @@
 + Requires [Node.js][nodejs_page].
 + Compiles Pinyinbase glossaries to JSON files.
 + Sorts all entries by pinyin, alphabetically.
-+ Export as CEDICT text files.
++ Export as raw JSON or CEDICT text files.
 
 ### Quick Start
 
