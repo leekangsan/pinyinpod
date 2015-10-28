@@ -137,7 +137,7 @@
 
 ### Slow Down, Turbo
 
-> **NOTE:** Please keep in mind that the PRODUCT is [PINYINBASE][gh_pinyinbase] -- not PINYINPOD -- and certainly not any simple demo that may be included for your reference. So, please do not expect fancy, advanced dictionary management tools. For now, please expect a simple compile of dictionary source files to a JSON file, then a simple demo of that JSON file in use. Feel free to build your own dictionary clients, converters, and exporters. Thank you.
+> **NOTE:** Please keep in mind that **pinyinpod** is not the product. The product is [Pinyinbase][gh_pinyinbase]. It is reference implementation of how you can compile Pinyinbase glossaries into a single, searchable Pinyinbase JSON document. While this JSON document can be used in solutions, such as Firebase, MongoDB, Cassandra, or HBase (just to name a few NoSQL options), **pinyinpod** and its output files are simply reference implementations (all of which are public domain). Again, it is not the product.
 
 ### Compiling CC-CEDICT
 
