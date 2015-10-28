@@ -135,9 +135,14 @@
   + Creates (or overwrites) compile info to a file named `log.txt`
   + No output to screen.
 
-### Slow Down, Turbo
 
-> **NOTE:** Please keep in mind that **pinyinpod** is not the product. The product is [Pinyinbase][gh_pinyinbase]. It is reference implementation of how you can compile Pinyinbase glossaries into a single, searchable Pinyinbase JSON document. While this JSON document can be used in solutions, such as Firebase, MongoDB, Cassandra, or HBase (just to name a few NoSQL options), **pinyinpod** and its output files are simply reference implementations (all of which are public domain). Again, it is not the product.
+### Using Pinyinpod
+
+  + Pinyinpod is [free software][web_freesw] released to the PUBLIC DOMAIN.
+
+> **NOTE:** Please keep in mind that **pinyinpod** is not the product. The product is [Pinyinbase][gh_pinyinbase]. **Pinyinpod** is an example of the many ways you may compile Pinyinbase glossaries into a single, searchable Pinyinbase JSON document. While this JSON document can be used in solutions, such as Firebase, MongoDB, Cassandra, or HBase (just to name a few NoSQL options), **pinyinpod** and its output files are simply reference implementations. If you have better solutions, feel free to add them to your version of **pinyinpod.**
+
+
 
 ### Compiling CC-CEDICT
 
@@ -159,6 +164,7 @@ Then, try out PFFYDICT:
       + https://github.com/pffy/php-cedict2mysql (Build)
       + https://github.com/pffy/java-pffydict-mysql (Query)
 
+[web_freesw]: http://www.gnu.org/philosophy/free-sw.en.html
 [cedict_syntax]: http://cc-cedict.org/wiki/format:syntax
 [gh_casestudy]: https://github.com/pffy/pinyinbase#case-studies
 [gh_clean]:https://github.com/pffy/pinyinpod/blob/master/README.md#--clean
