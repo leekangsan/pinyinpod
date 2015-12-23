@@ -17,6 +17,9 @@
 **Need to update repo?**
 + In `pinyinpod` repo root, type: `$ git submodule update --remote --recursive`
 
+**Ooops! Need to remove a submodule?**
++ [Removing a git submodule][so_deletesub] should be done carefully.
+
 **Build a new Pinyinbase.**
 + From the `pinyinpod` repo root directory, type `$ node pod.js`
 + Outfile (pinyinbase) appears in the `dist` folder.
@@ -164,6 +167,7 @@ Then, try out PFFYDICT:
       + https://github.com/pffy/php-cedict2mysql (Build)
       + https://github.com/pffy/java-pffydict-mysql (Query)
 
+[so_deletesub]: http://stackoverflow.com/a/16162000
 [web_freesw]: http://www.gnu.org/philosophy/free-sw.en.html
 [cedict_syntax]: http://cc-cedict.org/wiki/format:syntax
 [gh_casestudy]: https://github.com/pffy/pinyinbase#case-studies
