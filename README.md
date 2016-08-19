@@ -12,7 +12,7 @@
 + On Mac? `$ brew install node`
 
 **Clone this repo.**
-+ `$ git clone https://github.com/pffy/pinyinpod`
++ `$ git clone --recursive https://github.com/pffy/pinyinpod`
 
 **Need to update repo?**
 + In `pinyinpod` repo root, type: `$ git submodule update --remote --recursive`
