@@ -145,7 +145,8 @@
 
 > **NOTE:** Please keep in mind that **Pinyinpod** is not the product. The product is [Pinyinbase][gh_pinyinbase]. **Pinyinpod** is an example of the many ways you may compile Pinyinbase glossaries into a single, searchable Pinyinbase JSON document. While this JSON document can be used in solutions, such as Firebase, MongoDB, Cassandra, or HBase (just to name a few NoSQL options), **Pinyinpod** and its output files are simply reference implementations. If you have better solutions, feel free to add them to your version of **Pinyinpod.**
 
-
+### Git.io Short URL
++ https://git.io/pinyinpod
 
 ### Compiling CC-CEDICT
 
